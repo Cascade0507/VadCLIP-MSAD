@@ -27,7 +27,7 @@ for idx in range(lists.shape[0]):
     segment = []
     label = []
     if 'Normal' in label_text:
-        fea = np.load(name)
+        fea = np.load(name) 
         lens = fea.shape[0] * clip_len
         name = name.split('/')[-1]
         name = name[:-7]

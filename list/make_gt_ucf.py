@@ -5,10 +5,10 @@ import cv2
 clip_len = 16
 
 # the dir of testing images
-feature_list = 'list/ucf_CLIP_rgbtest.csv'
+feature_list = 'ucf_CLIP_rgbtest.csv'
 # the ground truth txt
 
-gt_txt = 'list/Temporal_Anomaly_Annotation.txt'     ## the path of test annotations
+gt_txt = 'Temporal_Anomaly_Annotation.txt'     ## the path of test annotations
 gt_lines = list(open(gt_txt))
 gt = []
 lists = pd.read_csv(feature_list)
@@ -42,4 +42,4 @@ for idx in range(lists.shape[0]):
     gt.extend(gt_vec[:-clip_len])
 
 print(count)
-np.save('list/gt_ucf.npy', gt)
+np.save('gt_ucf.npy', gt)
