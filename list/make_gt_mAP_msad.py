@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # Paths to your files
-feature_list_path = r'C:\Users\gteja\Documents\Python\VadCLIP\VadCLIP-MSAD\list\MSAD_train_list.list'  # Text file with feature paths
+feature_list_path = r'C:\Users\gteja\Documents\Python\VadCLIP\VadCLIP-MSAD\list\MSAD_test_list.list'  # Text file with feature paths
 annotations_csv_path = r'C:\Users\gteja\Documents\Python\VadCLIP\VadCLIP-MSAD\list\anomaly_annotation.csv'  # Your annotation CSV
 not_found = 0
 # Load annotations
@@ -55,8 +55,8 @@ for path in feature_paths:
     gt_segment.append(segment)
     gt_label.append(label)
 
-np.save('msad_gt_label_custom.npy', gt_label)
-np.save('msad_gt_segment_custom.npy', gt_segment)
+np.save('msad_gt_label_test_custom.npy', gt_label)
+np.save('msad_gt_segment_test_custom.npy', gt_segment)
 
 print(not_found)
 print(f"Processed {len(feature_paths)} videos")
