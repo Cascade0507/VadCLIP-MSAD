@@ -1,0 +1,6 @@
+# Ignore model files
+*.pth
+model_cur.pth
+
+# Ignore BFG reports
+..bfg-report/
