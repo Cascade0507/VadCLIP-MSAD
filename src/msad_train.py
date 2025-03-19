@@ -64,6 +64,7 @@ def train(model, train_loader, test_loader, args, label_map: dict, device):
         model.train()
         loss_total1 = 0
         loss_total2 = 0
+        print("This is epoch number: ",e+1)
         for i, item in enumerate(train_loader):
             step = 0
             visual_feat, text_labels, feat_lengths = item

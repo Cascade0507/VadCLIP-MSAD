@@ -8,7 +8,7 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 from model import CLIPVAD
 from utils.dataset import MSADDataset
 from utils.tools import get_batch_mask, get_prompt_text
-from utils.xd_detectionMAP import getDetectionMAP as dmAP
+from utils.msad_detectionMAP import getDetectionMAP as dmAP
 import msad_option
 
 def test(model, testdataloader, maxlen, prompt_text, gt, gtsegments, gtlabels, device):
@@ -77,7 +77,7 @@ def test(model, testdataloader, maxlen, prompt_text, gt, gtsegments, gtlabels, d
     dmap, iou = dmAP(element_logits2_stack, gtsegments, gtlabels, excludeNormal=False)
     averageMAP = 0
     for i in range(5):
-        print('mAP@{0:.1f} ={1:.2f}%'.format(iou[i], dmap[i]))
+        print('mAP@{0:.2f} ={1:.2f}%'.format(iou[i], dmap[i]))
         averageMAP += dmap[i]
     averageMAP = averageMAP/(i+1)
     print('average MAP: {:.2f}'.format(averageMAP))
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     device = "cuda" if torch.cuda.is_available() else "cpu"
     args = msad_option.parser.parse_args()
 
-    label_map = dict({'A': 'normal', 'B1': 'fighting', 'B2': 'shooting', 'B4': 'riot', 'B5': 'abuse', 'B6': 'car accident', 'G': 'explosion'})
+    label_map = dict({'Normal': 'normal', 'Anomaly': 'anomaly'})
 
     test_dataset = MSADDataset(args.visual_length, args.test_list, True, label_map)
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
