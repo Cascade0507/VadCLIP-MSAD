@@ -108,7 +108,7 @@ class CLIPVAD(nn.Module):
         ]))
         self.classifier = nn.Linear(visual_width, 1)
 
-        self.clipmodel, _ = clip.load("ViT-B/16", device)
+        self.clipmodel, _ = clip.load("ViT-B/32", device)
         for clip_param in self.clipmodel.parameters():
             clip_param.requires_grad = False
 
