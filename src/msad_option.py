@@ -20,7 +20,7 @@ parser.add_argument('--checkpoint-path', default='../model/checkpoint.pth')
 parser.add_argument('--batch-size', default=64, type=int)
 parser.add_argument('--train-list', default='../list/MSAD_train.csv')
 parser.add_argument('--test-list', default='../list/MSAD_test.csv')
-parser.add_argument('--gt-path', default='../list/gt-MSAD-WS.npy')
+parser.add_argument('--gt-path', default='../list/gt_msad_new.npy')
 parser.add_argument('--gt-segment-path', default='../list/msad_gt_segment_custom.npy')
 parser.add_argument('--gt-label-path', default='../list/msad_gt_label_custom.npy')
 
