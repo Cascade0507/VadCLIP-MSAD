@@ -40,6 +40,6 @@ for idx in range(lists.shape[0]):
                 break
     gt.extend(gt_vec[:-clip_len])
 
-np.save('list/gt_xd.npy', gt)
+np.save('list/gt_xd_new.npy', gt)
 
 print(count)
